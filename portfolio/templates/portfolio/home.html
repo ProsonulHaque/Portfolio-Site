@@ -1,0 +1,63 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="row justify-content-center my-3">
+    <div class="col-4">
+      <img src="{% static 'portfolio/coder boy.png' %}" class="img-fluid">
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-3">
+    <div class="col-md-15 text-center">
+      <h1 class="font-weight-bold">Prosonul Haque { Rafa } is a Natural Born Geek who Lives in Downtown Dhaka & Loves to Code in Python 😊</h1>
+    </div>
+  </div>
+
+  <h2 class="mt-5">Projects</h2>
+  <hr>
+  <div class="row">
+  {% for project in projects %}
+  <div class="col-lg-4 col-md-6">
+    {% if project.url_name %}
+    <a href="projects/{{ project.url_name }}/">
+      <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    </a>
+    {% elif project.url %}
+    <a href="{{ project.url }}">
+      <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    </a>
+    {% else %}
+    <img src="{{ project.image.url }}" class="img-fluid mb-2">
+    {% endif %}
+    <h3>{{ project.title }}</h3>
+    <p>{{ project.description }}</p>
+  </div>
+  {% endfor %}
+  </div>
+
+
+  <h2 class="mt-5">Certificates</h2>
+  <hr>
+  <div class="row">
+  {% for certificate in certificates %}
+  <div class="col-lg-4 col-md-6">
+    {% if certificate.url_name %}
+    <a href="certificates/{{ certificate.url_name }}/">
+      <img src="{{ certificate.image.url }}" class="img-fluid mb-2">
+    </a>
+    {% elif certificate.url %}
+    <a href="{{ certificate.url }}">
+      <img src="{{ certificate.image.url }}" class="img-fluid mb-2">
+    </a>
+    {% else %}
+    <img src="{{ certificate.image.url }}" class="img-fluid mb-2">
+    {% endif %}
+    <h3>{{ certificate.title }}</h3>
+    <p>{{ certificate.description }}</p>
+  </div>
+  {% endfor %}
+  </div>
+
+
+{% endblock %}
