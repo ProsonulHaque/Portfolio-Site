@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'thf@e@#g1ag4=8esw3q)q1mwd+@24rxb8q%@nbb)yoy)ab-5#$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['prosonulhaque-portfolio.herokuapp.com', '127.0.0.1']
 
@@ -132,3 +132,5 @@ STATICFILES_DIRS = (
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 MEDIAFILES_DIRS = (MEDIA_ROOT)
+
+django_heroku.settings(locals())
